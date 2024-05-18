@@ -9,6 +9,7 @@ pipeline {
                 echo 'Building..'
                 sh '''
                 pwd
+                ls -ltra
                 pip install -r requirements.txt
                 '''
             }
