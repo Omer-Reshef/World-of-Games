@@ -11,7 +11,7 @@ pipeline {
                 pwd
                 ls -ltra
                 whoami
-                docker compose up
+                docker compose build
                 '''
             }
         }
