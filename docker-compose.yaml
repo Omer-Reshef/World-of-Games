@@ -4,5 +4,5 @@ services:
     build: .
     image: omerr8/wog:v1.0
     ports:
-      - "8000:5000"
+      - "8777:8777"
     restart: always

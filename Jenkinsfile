@@ -11,7 +11,7 @@ pipeline {
                 pwd
                 ls -ltra
                 whoami
-                pip install -r requirements.txt --break-system-packages
+                docker compose up
                 '''
             }
         }
