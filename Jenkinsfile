@@ -7,6 +7,10 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
+                sh '''
+                pwd
+                pip install -r requirements.txt
+                '''
             }
         }
         stage('Run') {
