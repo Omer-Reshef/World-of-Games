@@ -10,6 +10,8 @@ pipeline {
                 sh '''
                 pwd
                 ls -ltra
+                whoami
+                sudo apt install python
                 pip install -r requirements.txt
                 '''
             }
