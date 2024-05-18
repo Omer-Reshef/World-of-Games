@@ -16,7 +16,7 @@ pipeline {
             steps {
                 echo 'Running..'
                 sh '''
-                docker compose run app -d
+                docker compose run -d app
                 '''
             }
         }
