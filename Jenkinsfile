@@ -8,9 +8,6 @@ pipeline {
             steps {
                 echo 'Building..'
                 sh '''
-                pwd
-                ls -ltra
-                whoami
                 docker compose build
                 '''
             }
@@ -18,6 +15,9 @@ pipeline {
         stage('Run') {
             steps {
                 echo 'Running..'
+                sh '''
+                docker compose run
+                '''
             }
         }
         stage('Test') {
