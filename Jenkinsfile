@@ -23,6 +23,10 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing..'
+                sh '''
+                python MainScores.py
+                python tests/e2e.py
+                '''
             }
         }
         stage('Finalize') {
