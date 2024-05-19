@@ -24,8 +24,8 @@ pipeline {
             steps {
                 echo 'Testing..'
                 sh '''
-                python MainScores.py
-                python tests/e2e.py
+                python3 MainScores.py
+                python3 tests/e2e.py
                 '''
             }
         }
