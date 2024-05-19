@@ -28,6 +28,7 @@ pipeline {
                     pip install -r requirements.txt --break-system-packages
                     python3 MainScores.py &
                     python3 tests/e2e.py > test_result.log
+                    cat test_result.log
                     '''
                     if(readFile('test_result.log').contains('-1')){
                         error 'tests failed'

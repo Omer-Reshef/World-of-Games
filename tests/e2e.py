@@ -2,7 +2,8 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException
 
-LOCAL_HOST_URL = "http://127.0.0.1:5000"
+# LOCAL_HOST_URL = "http://127.0.0.1:5000"
+LOCAL_HOST_URL = "https://www.google.com"
 
 
 def get_web_driver():
