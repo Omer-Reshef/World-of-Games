@@ -10,9 +10,9 @@ def get_web_driver():
     return webdriver.Chrome()
 
 
-def test_scores_service():
+def test_scores_service(url):
     driver = get_web_driver()
-    driver.get(LOCAL_HOST_URL)
+    driver.get(url)
     try:
         score_element = driver.find_element(By.ID, 'score')
         score = int(score_element.text)
@@ -23,7 +23,7 @@ def test_scores_service():
 
 
 def main_function():
-    success = test_scores_service()
+    success = test_scores_service(LOCAL_HOST_URL)
     if success:
         return 0
     else:
