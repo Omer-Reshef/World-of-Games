@@ -25,7 +25,7 @@ pipeline {
                 echo 'Testing..'
                 script{
                     sh '''
-                    pip install requirements.txt
+                    pip install requirements.txt --break-system-packages
                     python3 MainScores.py &
                     python3 tests/e2e.py > test_result.log
                     '''
