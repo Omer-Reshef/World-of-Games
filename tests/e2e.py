@@ -2,6 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException
 from time import sleep
+from unittest import TestCase
 
 LOCAL_HOST_URL = "http://127.0.0.1:5000"
 
@@ -28,3 +29,6 @@ def main_function():
         return 0
     else:
         return -1
+
+
+main_function()

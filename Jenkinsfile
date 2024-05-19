@@ -23,11 +23,18 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing..'
-                sh '''
-                python3 MainScores.py &
-                python3 tests/e2e.py
-                '''
+                script{
+                    sh '''
+                    python3 MainScores.py &
+                    python3 tests/e2e.py > test_result.log
+                    '''
+                    if(readFile('test_result.log').contains('-1')){
+                        error 'tests failed'
+                    }
             }
+
+            }
+
         }
         stage('Finalize') {
             steps {
