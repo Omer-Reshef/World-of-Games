@@ -4,7 +4,6 @@ from selenium.common.exceptions import NoSuchElementException
 import os
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
-
 os.environ["TEST_ENV"] = "1"
 
 LOCAL_HOST_URL = "http://127.0.0.1:5000"
@@ -36,16 +35,14 @@ def test_scores_service(url):
     return 1 <= score <= 1000
 
 
-def main_function():
+def main():
     print("before test_scores_service")
     success = test_scores_service(LOCAL_HOST_URL)
     print("after test_scores_service")
     if success:
-        print("return 0")
-        return 0
+        exit(0)
     else:
-        print("return -1")
-        return -1
+        exit(-1)
 
 
-main_function()
+# main()
