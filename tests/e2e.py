@@ -45,4 +45,4 @@ def main():
         exit(-1)
 
 
-# main()
+main()
