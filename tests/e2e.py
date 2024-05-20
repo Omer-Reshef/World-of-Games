@@ -38,7 +38,7 @@ def test_scores_service(url):
 def main():
     print("before test_scores_service")
     success = test_scores_service(LOCAL_HOST_URL)
-    print("after test_scores_service")
+    print(f'after test_scores_service.  success: {success}')
     if success:
         exit(0)
     else:
