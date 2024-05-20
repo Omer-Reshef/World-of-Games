@@ -32,10 +32,11 @@ def test_scores_service(url):
         score = int(score_element.text)
     except (ValueError, NoSuchElementException) as e:
         score = -1
+    print(f'score: {score}')
     return 1 <= score <= 1000
 
 
-def main():
+def main_function():
     print("before test_scores_service")
     success = test_scores_service(LOCAL_HOST_URL)
     print(f'after test_scores_service.  success: {success}')
@@ -45,4 +46,4 @@ def main():
         exit(-1)
 
 
-main()
+main_function()
