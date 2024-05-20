@@ -6,8 +6,8 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 os.environ["TEST_ENV"] = "1"
 
-LOCAL_HOST_URL = "http://127.0.0.1:5000"
-# LOCAL_HOST_URL = "https://www.google.com"
+# LOCAL_HOST_URL = "http://127.0.0.1:5000"
+LOCAL_HOST_URL = "https://www.google.com"
 
 
 def get_web_driver():
