@@ -27,6 +27,7 @@ pipeline {
                     sh '''
                     pip install -r requirements.txt --break-system-packages
                     python3 MainScores.py &
+                    echo "stam" > test_result.log
                     python3 tests/e2e.py > test_result.log
                     cat test_result.log
                     '''
