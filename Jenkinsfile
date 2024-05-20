@@ -23,14 +23,16 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing..'
-                script{
-                    sh '''
+                 sh '''
                     pip install -r requirements.txt --break-system-packages
                     python3 MainScores.py &
                     echo "stam" > test_result.log
+                    ls -ltra
                     python3 tests/e2e.py > test_result.log
                     cat test_result.log
                     '''
+                script{
+
                     if(readFile('test_result.log').contains('-1')){
                         error 'tests failed'
                     }
