@@ -11,8 +11,6 @@ os.environ["TEST_ENV"] = "1"
 LOCAL_HOST_URL = "https://www.google.com"
 
 
-
-
 def get_web_driver():
     chrome_options = Options()
     chrome_options.add_argument("--headless")
@@ -35,15 +33,18 @@ def test_scores_service(url):
         score = int(score_element.text)
     except (ValueError, NoSuchElementException) as e:
         score = -1
-
     return 1 <= score <= 1000
 
 
 def main_function():
+    print("before test_scores_service")
     success = test_scores_service(LOCAL_HOST_URL)
+    print("after test_scores_service")
     if success:
+        print("return 0")
         return 0
     else:
+        print("return -1")
         return -1
 
 
