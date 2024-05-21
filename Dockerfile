@@ -3,4 +3,5 @@ COPY . /app
 WORKDIR /app
 RUN mv Scores.txt /Scores.txt
 RUN pip install -r requirements.txt
+RUN python MainGame.py &
 CMD ["python","MainGame.py"]
