@@ -34,7 +34,7 @@ pipeline {
 //                         sh 'python3 MainScores.py &'
 //                         sh 'python3 tests/e2e.py'
                     } catch (Exception e) {
-                        docker compose down
+                        sh 'docker compose down'
                         error "Tests failed!"
                     }
                 }
@@ -51,8 +51,11 @@ pipeline {
         stage('Finalize') {
             steps {
                 echo 'Finalizing....'
+                sh '''
                 docker compose down
                 docker compose push
+                '''
+
             }
         }
     }
