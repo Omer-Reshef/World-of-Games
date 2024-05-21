@@ -1,6 +1,9 @@
 properties([pipelineTriggers([pollSCM('*/5 * * * *')])])
 pipeline {
     agent any
+    environment{
+        DOCKERHUB_CREDENTIALS = credentials('omerr8-dockerhub')
+    }
 
     stages {
 
@@ -30,20 +33,10 @@ pipeline {
                         python3 MainScores.py &
                         python3 tests/e2e.py
                         '''
-//                         sh 'pip install -r requirements.txt --break-system-packages'
-//                         sh 'python3 MainScores.py &'
-//                         sh 'python3 tests/e2e.py'
                     } catch (Exception e) {
-                        sh 'docker compose down'
                         error "Tests failed!"
                     }
                 }
-//                  sh '''
-//                     pip install -r  --no-cache-dir requirements.txt --break-system-packages
-//                     python3 MainScores.py &
-//                     python3 tests/e2e.py > e2e.log
-//                     cat test_result.log
-//                     '''
 
             }
 
@@ -52,10 +45,18 @@ pipeline {
             steps {
                 echo 'Finalizing....'
                 sh '''
-                docker compose down
+                echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin
                 docker compose push
                 '''
 
+            }
+        }
+        post{
+            always{
+            sh '''
+            docker logout
+            docker compose down
+            '''
             }
         }
     }
