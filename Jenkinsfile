@@ -27,7 +27,7 @@ pipeline {
                     try {
                         sh 'pip install -r requirements.txt --break-system-packages'
                         sh 'python3 MainScores.py &'
-                        sh 'python e2e.py'
+                        sh 'python3 e2e.py'
                         sh 'python3 tests/e2e.py > e2e.log'
                         sh 'cat test_result.log'
                     } catch (Exception e) {
