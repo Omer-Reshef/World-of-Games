@@ -25,7 +25,7 @@ pipeline {
                 echo 'Testing..'
                 script {
                     try {
-                        sh 'pip install -r  --no-cache-dir requirements.txt --break-system-packages'
+                        sh 'pip install -r requirements.txt --break-system-packages'
                         sh 'python3 MainScores.py &'
                         sh 'python e2e.py'
                         sh 'python3 tests/e2e.py > e2e.log'
