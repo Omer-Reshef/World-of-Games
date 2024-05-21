@@ -51,13 +51,14 @@ pipeline {
 
             }
         }
-        post{
-            always{
-            sh '''
-            docker logout
-            docker compose down
-            '''
-            }
+    }
+
+    post{
+        always{
+        sh '''
+        docker logout
+        docker compose down
+        '''
         }
     }
 }
