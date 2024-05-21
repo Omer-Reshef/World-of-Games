@@ -25,10 +25,14 @@ pipeline {
                 echo 'Testing..'
                 script {
                     try {
-                        sh 'pip install -r requirements.txt --break-system-packages'
-                        sh 'python3 MainScores.py &'
-                        sh 'python3 tests/e2e.py > e2e.log'
-                        sh 'cat test_result.log'
+                        sh '''
+                        pip install -r requirements.txt --break-system-packages
+                        python3 MainScores.py &
+                        python3 tests/e2e.py
+                        '''
+//                         sh 'pip install -r requirements.txt --break-system-packages'
+//                         sh 'python3 MainScores.py &'
+//                         sh 'python3 tests/e2e.py'
                     } catch (Exception e) {
                         docker compose down
                         error "Tests failed!"
@@ -47,6 +51,8 @@ pipeline {
         stage('Finalize') {
             steps {
                 echo 'Finalizing....'
+                docker compose down
+                docker compose push
             }
         }
     }
