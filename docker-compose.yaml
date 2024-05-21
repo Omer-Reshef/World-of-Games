@@ -1,7 +1,7 @@
 services:
   app:
     build: .
-    image: omerr8/wog:v1.0
+    image: omerr8/wog:v1.01
     ports:
       - "8777:8777"
     volumes:
