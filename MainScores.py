@@ -40,4 +40,4 @@ def score_server():
         return get_html_error(e.strerror)
 
 
-app.run(host='127.0.0.1', port="5000")
+app.run(host='127.0.0.1', port="8777")
