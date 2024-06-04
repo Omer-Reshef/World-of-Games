@@ -54,7 +54,7 @@ To run the end-to-end tests using Selenium:
 
 2. Execute the Selenium tests:
     ```bash
-    python e2e.py
+    python tests/e2e.py
     ```
 
 ## Docker
