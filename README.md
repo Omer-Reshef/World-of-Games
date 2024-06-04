@@ -1,4 +1,4 @@
-# DevOps CLI Game Project
+# World Of Games: DevOps CLI Game Project
 
 ## Description
 
